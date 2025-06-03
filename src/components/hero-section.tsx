@@ -1,5 +1,3 @@
-'use client'
-
 import { AppleHelloEnglishEffect } from './ui/apple-hello-effect'
 import ScrollDown from './ui/scroll-down'
 

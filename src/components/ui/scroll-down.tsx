@@ -1,5 +1,6 @@
 'use client'
 
+import { ChevronDown } from 'lucide-react'
 import { motion } from 'motion/react'
 
 interface ScrollDownProps {
@@ -13,7 +14,7 @@ const ScrollDown = ({ delay = 4 }: ScrollDownProps) => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay, duration: 1, ease: 'easeOut' }}
   >
-    <a className="no-underline" href="#">
+    <a className="no-underline" href="#timeline">
       <motion.div
         className="flex items-center justify-center"
         animate={{ y: [0, 8, 0] }}
@@ -21,20 +22,10 @@ const ScrollDown = ({ delay = 4 }: ScrollDownProps) => (
           duration: 2,
           repeat: Infinity,
           ease: 'easeInOut',
-          delay: delay + 1, // Start bouncing after entrance animation
+          delay: delay + 1,
         }}
       >
-        <svg
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          className="size-15 md:size-20 lg:size-25"
-        >
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path
-            d="M11.9997 13.1716L7.04996 8.22186L5.63574 9.63607L11.9997 16L18.3637 9.63607L16.9495 8.22186L11.9997 13.1716Z"
-            fill="rgba(28,28,30,1)"
-          />
-        </svg>
+        <ChevronDown className="size-15 md:size-20 lg:size-25" />
       </motion.div>
     </a>
   </motion.div>

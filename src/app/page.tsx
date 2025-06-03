@@ -1,7 +1,7 @@
-import React from "react";
-import { Timeline } from "@/components/ui/timeline";
-import { timelineData } from "@/constants/timeline-data";
-import HeroSection from "@/components/hero-section";
+import React from 'react'
+import { Timeline } from '@/components/timeline'
+import { timelineData } from '@/data/timeline-data'
+import HeroSection from '@/components/hero-section'
 
 export default function Page() {
   return (
@@ -13,5 +13,5 @@ export default function Page() {
         </div>
       </div>
     </>
-  );
+  )
 }

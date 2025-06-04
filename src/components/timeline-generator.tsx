@@ -7,6 +7,7 @@ import type {
   TimelineItem,
   GalleryImage,
 } from '@/types/timeline'
+import { cn } from '@/lib/utils'
 
 // Styles
 const styles = {
@@ -15,7 +16,7 @@ const styles = {
   link: 'text-blue-500 hover:text-blue-600',
   underline: 'underline',
   image:
-    'h-20 w-full rounded-lg shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-65',
+    'rounded-lg h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]',
 }
 
 // Components
@@ -35,7 +36,8 @@ const TechnologyList = ({ technologies }: { technologies: Technology[] }) => (
   <>
     {technologies.map((tech, index) => (
       <span key={tech.name}>
-        <span className={styles.underline}>{tech.name}</span>
+        <span className={cn(styles.underline)}>{tech.name}</span>
+        <span>{index === technologies.length - 1 && '.'}</span>
         {index < technologies.length - 1 && (
           <span>{index === technologies.length - 2 ? ' and ' : ', '}</span>
         )}
@@ -61,7 +63,7 @@ const TimelineItemComponent = ({ item }: { item: TimelineItem }) => {
         {parts[1]}
         {item.technologies && (
           <>
-            {' using '}
+            {' Using '}
             <TechnologyList technologies={item.technologies} />
           </>
         )}
@@ -82,7 +84,11 @@ const GalleryImageComponent = ({ image }: { image: GalleryImage }) => (
     alt={image.alt}
     width={500}
     height={500}
-    className={`${styles.image} object-${image.objectFit || 'cover'}`}
+    className={cn(
+      styles.image,
+      `object-${image.objectFit || 'cover'}`,
+      image.objectFit === 'contain' && 'bg-neutral-50 dark:bg-neutral-900'
+    )}
   />
 )
 

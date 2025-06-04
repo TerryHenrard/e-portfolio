@@ -5,7 +5,6 @@ import { ArrowRight } from 'lucide-react'
 import {
   Drawer,
   DrawerContent,
-  DrawerDescription,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -71,8 +70,8 @@ const GoInDepth = () => {
 
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-          <DrawerDescription>This action cannot be undone.</DrawerDescription>
+          <DrawerTitle>Nothing here yet</DrawerTitle>
+          {/* <DrawerDescription>This action cannot be undone.</DrawerDescription> */}
         </DrawerHeader>
       </DrawerContent>
     </Drawer>

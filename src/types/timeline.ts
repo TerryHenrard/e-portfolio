@@ -19,6 +19,8 @@ export interface GalleryImage {
   src: string
   alt: string
   objectFit?: 'cover' | 'contain'
+  height: number
+  width: number
 }
 
 export interface TimelineEntry {

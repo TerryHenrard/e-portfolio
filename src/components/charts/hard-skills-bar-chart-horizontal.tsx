@@ -36,7 +36,7 @@ export default function HardSkillsBarChartHorizontal() {
         <CardTitle>Hard skills</CardTitle>
       </CardHeader>
       <CardContent className="px-3">
-        <ChartContainer config={chartConfig} className="max-h-75">
+        <ChartContainer config={chartConfig} className="aspect-[5/3] max-h-75">
           <BarChart
             accessibilityLayer
             data={chartData}

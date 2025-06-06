@@ -13,12 +13,11 @@ import {
 export const description = 'A radar chart'
 
 const chartData = [
-  { skill: 'Communication', rating: 90 },
-  { skill: 'Leadership', rating: 85 },
-  { skill: 'Team Work', rating: 95 },
+  { skill: 'Start-up', rating: 95 },
+  { skill: 'Leadership', rating: 90 },
   { skill: 'Problem Solving', rating: 88 },
   { skill: 'Adaptability', rating: 82 },
-  { skill: 'Creativity', rating: 75 },
+  { skill: 'Project management', rating: 90 },
 ]
 
 const chartConfig = {

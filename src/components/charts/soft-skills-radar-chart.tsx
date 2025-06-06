@@ -30,14 +30,14 @@ const chartConfig = {
 
 export function SoftSkillsRadarChart() {
   return (
-    <Card className="w-100">
+    <Card className="w-150">
       <CardHeader className="items-center pb-4">
         <CardTitle>Soft skills</CardTitle>
       </CardHeader>
       <CardContent className="px-3">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-[4/3] max-h-[250px]"
+          className="mx-auto aspect-[4/3] max-h-75"
         >
           <RadarChart data={chartData}>
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />

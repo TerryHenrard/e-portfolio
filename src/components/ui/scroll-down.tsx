@@ -14,7 +14,7 @@ const ScrollDown = ({ delay = 4 }: ScrollDownProps) => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay, duration: 1, ease: 'easeOut' }}
   >
-    <a className="no-underline" href="#timeline">
+    <a className="no-underline" href="#about-me">
       <motion.div
         className="flex items-center justify-center"
         animate={{ y: [0, 8, 0] }}

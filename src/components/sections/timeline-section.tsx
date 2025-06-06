@@ -1,4 +1,5 @@
 'use client'
+
 import { useScroll, useTransform, motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 
@@ -11,7 +12,7 @@ interface TimeLineProps {
   data: TimelineEntry[]
 }
 
-export const Timeline = ({ data }: TimeLineProps) => {
+export const TimelineSection = ({ data }: TimeLineProps) => {
   const ref = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const [height, setHeight] = useState(0)

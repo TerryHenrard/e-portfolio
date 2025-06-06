@@ -28,15 +28,13 @@ export const timeline2024Data: TimelineYear = {
   galleryImages: [
     {
       src: '/visit-me-3d-visit-2024.png',
-      alt: '2024 project screenshot 2',
-      objectFit: 'cover',
+      alt: 'Visit-Me 3D virtual tour interface showing immersive property visualization',
       height: 330,
       width: 640,
     },
     {
       src: '/pente-game-2024.png',
-      alt: 'Pente game',
-      objectFit: 'cover',
+      alt: 'Pente strategy board game implementation with Python and C programming',
       height: 644,
       width: 640,
     },

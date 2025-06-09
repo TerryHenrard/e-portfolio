@@ -19,7 +19,6 @@ const chartData = [
   { skill: 'IA', rating: 80 },
   { skill: 'C#', rating: 70 },
   { skill: 'Java', rating: 70 },
-  { skill: 'SQL', rating: 65 },
 ]
 
 const chartConfig = {

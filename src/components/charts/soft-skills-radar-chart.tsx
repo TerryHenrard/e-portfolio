@@ -28,27 +28,98 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function SoftSkillsRadarChart() {
+  // Create accessible data summary for screen readers
+  const skillsSummary = chartData
+    .map((item) => `${item.skill}: ${item.rating}%`)
+    .join(', ')
+
+  // Enhanced accessibility announcement
+  const handleChartFocus = () => {
+    const announcement = `Soft skills radar chart focused. Interpersonal abilities shown in circular format. Skills include: ${skillsSummary}`
+    const announcementElement = document.getElementById(
+      'soft-skills-description'
+    )
+    if (announcementElement) {
+      announcementElement.setAttribute('aria-live', 'assertive')
+      announcementElement.textContent = announcement
+      setTimeout(() => {
+        announcementElement.setAttribute('aria-live', 'polite')
+        announcementElement.textContent = `Soft skills proficiency radar chart showing interpersonal and leadership abilities. Skills and ratings: ${skillsSummary}`
+      }, 3000)
+    }
+  }
+
   return (
-    <Card className="w-150">
+    <Card
+      className="mx-auto w-full max-w-md md:max-w-lg lg:max-w-xl"
+      role="img"
+      aria-labelledby="soft-skills-title"
+      aria-describedby="soft-skills-description"
+      tabIndex={0}
+      onFocus={handleChartFocus}
+    >
       <CardHeader className="items-center pb-4">
-        <CardTitle>Soft skills</CardTitle>
+        <CardTitle id="soft-skills-title" className="text-lg sm:text-xl">
+          Soft skills
+        </CardTitle>
       </CardHeader>
-      <CardContent className="px-3">
+      <CardContent className="px-3 sm:px-4">
+        {/* Hidden description for screen readers */}
+        <div
+          id="soft-skills-description"
+          className="sr-only"
+          aria-live="polite"
+        >
+          Soft skills proficiency radar chart showing interpersonal and
+          leadership abilities. Skills and ratings: {skillsSummary}
+        </div>{' '}
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-[5/3] max-h-75"
+          className="mx-auto aspect-[4/3] max-h-64 sm:aspect-[5/3] sm:max-h-75"
         >
-          <RadarChart data={chartData}>
-            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            <PolarAngleAxis dataKey="skill" />
-            <PolarGrid />
+          <RadarChart
+            data={chartData}
+            aria-label="Soft skills radar chart"
+            role="img"
+          >
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent />}
+              accessibilityLayer
+            />
+            <PolarAngleAxis
+              dataKey="skill"
+              aria-label="Soft skills categories around radar perimeter"
+            />
+            <PolarGrid aria-hidden="true" />
             <Radar
               dataKey="rating"
               fill="var(--color-desktop)"
               fillOpacity={0.6}
+              aria-label="Interpersonal skills proficiency area"
             />
           </RadarChart>
         </ChartContainer>
+        {/* Accessible table for screen readers */}
+        <table className="sr-only" aria-label="Soft skills data table">
+          <caption>
+            Interpersonal and leadership skills proficiency ratings
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Interpersonal Skill</th>
+              <th scope="col">Proficiency Rating (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chartData.map((item, index) => (
+              <tr key={index}>
+                <td>{item.skill}</td>
+                <td>{item.rating}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </CardContent>
     </Card>
   )

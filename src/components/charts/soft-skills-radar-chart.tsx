@@ -15,8 +15,9 @@ export const description = 'A radar chart'
 const chartData = [
   { skill: 'Business Development', rating: 92 },
   { skill: 'Strategic Thinking', rating: 88 },
-  { skill: 'Innovation', rating: 87 },
-  { skill: 'Leadership', rating: 98 },
+  { skill: 'Innovation', rating: 90 },
+  { skill: 'Leadership', rating: 90 },
+  { skill: 'Market Analysis', rating: 84 },
 ]
 
 const chartConfig = {
@@ -35,7 +36,7 @@ export function SoftSkillsRadarChart() {
       <CardContent className="px-3">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-[4/3] max-h-75"
+          className="mx-auto aspect-[5/3] max-h-75"
         >
           <RadarChart data={chartData}>
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />

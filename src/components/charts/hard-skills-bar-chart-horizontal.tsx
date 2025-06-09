@@ -13,12 +13,12 @@ import {
 export const description = 'A horizontal bar chart that shows hard skills'
 
 const chartData = [
-  { skill: 'Next.js', rating: 85 },
-  { skill: 'React', rating: 85 },
-  { skill: 'TypeScript', rating: 80 },
-  { skill: 'IA', rating: 80 },
-  { skill: 'C#', rating: 70 },
-  { skill: 'Java', rating: 70 },
+  { skill: 'Project management', rating: 85 },
+  { skill: 'DevOps', rating: 85 },
+  { skill: 'Security', rating: 80 },
+  { skill: 'Architecture', rating: 80 },
+  { skill: 'SEO', rating: 70 },
+  { skill: 'Test & Quality', rating: 70 },
 ]
 
 const chartConfig = {
@@ -66,7 +66,7 @@ export default function HardSkillsBarChartHorizontal() {
             accessibilityLayer
             data={chartData}
             layout="vertical"
-            margin={{ left: 15 }}
+            margin={{ left: 30 }}
             aria-label="Hard skills horizontal bar chart"
             role="img"
           >

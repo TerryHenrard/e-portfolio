@@ -1,13 +1,13 @@
-import GoInDepth from '@/components/go-in-depth'
-import { Dot, ExternalLink } from 'lucide-react'
-import Image from 'next/image'
+import GoInDepth from '@/components/go-in-depth';
+import { Dot, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 import type {
   Link,
   Technology,
   TimelineItem,
   GalleryImage,
-} from '@/types/timeline'
-import { cn } from '@/lib/utils'
+} from '@/types/timeline';
+import { cn } from '@/lib/utils';
 
 // Styles
 const styles = {
@@ -17,7 +17,7 @@ const styles = {
   underline: 'underline',
   image:
     'object-cover rounded-lg h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]',
-}
+};
 
 // Components
 const ExternalLinkComponent = ({ url, text }: Link) => (
@@ -30,7 +30,7 @@ const ExternalLinkComponent = ({ url, text }: Link) => (
     <span className="mr-1">{text}</span>
     <ExternalLink className="inline -translate-y-1/3" size={12} />
   </a>
-)
+);
 
 const TechnologyList = ({ technologies }: { technologies: Technology[] }) => (
   <>
@@ -44,17 +44,17 @@ const TechnologyList = ({ technologies }: { technologies: Technology[] }) => (
       </span>
     ))}
   </>
-)
+);
 
 const TimelineItemComponent = ({ item }: { item: TimelineItem }) => {
   const renderContent = () => {
     if (!item.link) {
-      return item.text
+      return item.text;
     }
 
     // For items with links, split the text and insert the link
-    const linkText = item.link.text
-    const parts = item.text.split(linkText)
+    const linkText = item.link.text;
+    const parts = item.text.split(linkText);
 
     return (
       <>
@@ -68,15 +68,15 @@ const TimelineItemComponent = ({ item }: { item: TimelineItem }) => {
           </>
         )}
       </>
-    )
-  }
+    );
+  };
 
   return (
     <p className={styles.paragraph}>
       <Dot className="inline" /> {renderContent()}
     </p>
-  )
-}
+  );
+};
 
 const GalleryImageComponent = ({ image }: { image: GalleryImage }) => (
   <Image
@@ -86,12 +86,12 @@ const GalleryImageComponent = ({ image }: { image: GalleryImage }) => (
     height={500}
     className={styles.image}
   />
-)
+);
 
 interface TimelineGeneratorProps {
-  timelineItems: TimelineItem[]
-  galleryImages: GalleryImage[]
-  showGoInDepth?: boolean
+  timelineItems: TimelineItem[];
+  galleryImages: GalleryImage[];
+  showGoInDepth?: boolean;
 }
 
 export const TimelineGenerator = ({
@@ -117,5 +117,5 @@ export const TimelineGenerator = ({
         ))}
       </div>
     </div>
-  )
-}
+  );
+};

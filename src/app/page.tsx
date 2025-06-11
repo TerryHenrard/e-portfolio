@@ -5,6 +5,8 @@ import AboutMeSection from '@/components/sections/about-me-section'
 import { TimelineSection } from '@/components/sections/timeline-section'
 import SkillsSections from '@/components/sections/skills-section'
 
+// TODO: Add analytics vercel tags
+
 export default function Page() {
   return (
     <>
